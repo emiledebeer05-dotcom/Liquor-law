@@ -503,9 +503,8 @@
     (function () {
       document.getElementById('yr').textContent = new Date().getFullYear();
 
-      // Leads go to Annamien, with Vincent in CC (via FormSubmit.co)
-      const ENDPOINT = 'https://formsubmit.co/ajax/annamien@liquorlawsa.co.za';
-      const CC = 'vincent@liquorlawsa.co.za';
+      // Leads are delivered by Formspree to annamien@ and vincent@liquorlawsa.co.za (set in the Formspree dashboard)
+      const ENDPOINT = 'https://formspree.io/f/xbglwbnn';
 
       const form = document.getElementById('lead-form');
       const submitBtn = document.getElementById('submit-btn');
@@ -562,10 +561,7 @@
             body: JSON.stringify({
               ...data,
               _subject: 'New liquor licence enquiry: ' + data['Needs help with'] + ' — ' + data.Name,
-              _cc: CC,
               _replyto: data.Email,
-              _template: 'table',
-              _captcha: 'false',
             }),
           });
 
